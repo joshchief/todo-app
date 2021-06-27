@@ -18,5 +18,5 @@ Route::get('/', [TodoController::class, 'index']);
 
 
 Route::post('/', [TodoController::class, 'store'])->name('todo.store');
-Route::put('/', [TodoController::class, 'update'])->name('todo.update');
-Route::delete('/todos/{id', [TodoController::class, 'destroy'])->name('todo.destroy');
+Route::put('/{id}', [TodoController::class, 'update'])->name('todo.update');
+Route::delete('/{id}', [TodoController::class, 'destroy'])->name('todo.destroy');

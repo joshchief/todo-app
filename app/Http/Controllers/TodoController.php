@@ -39,7 +39,7 @@ class TodoController extends Controller
     {
 
         $validator = Validator::make($request->all(), [
-            'title' => 'required'
+            'title' => 'string'
         ]); 
 
         $todos = Todo::create([
@@ -83,8 +83,13 @@ class TodoController extends Controller
      */
     public function update(Request $request, Todo $todo)
     {
-        $todo->update($request->all());
-        return redirect('/');
+
+       $todo = Todo::find($request->id);        
+       $input = $request->all();                
+       $todo->update($input);
+       
+
+       return redirect('/');
     }
 
     /**
@@ -93,8 +98,11 @@ class TodoController extends Controller
      * @param  \App\Models\Todo  $todo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Todo $todo)
+    public function destroy(Request $request, Todo $todo)
     {
-        //
+        $todo = Todo::find($request->id);        
+        $input = $request->all();
+        $todo->delete($input);
+        return redirect('/');
     }
 }

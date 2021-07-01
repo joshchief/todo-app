@@ -8,7 +8,7 @@
             @csrf
             <div class="col-sm-5 d-flex  justify-content-between" style="margin: 0 auto;">
                 <input type="text"  name="title" class="form-control" id="exampleFormControlInput1" placeholder="type here... ">
-                <button type="submit" class="btn btn-primary btn-sm" style="font-size:10px; font-weight: bold;" >Add task</button>
+                <button type="submit" class="btn btn-primary " style="font-size:10px; font-weight: bold;" >Add task</button>
             </div>
         </form> <br>
         <h5 class="card-title display-2" style="color:white; text-align:center; font-size: 28px;">My Todo List</h5>
@@ -44,14 +44,15 @@
                                         <button class="btn btn-warning btn-sm" >mark as not completed</button>
                                     </form>
                                 @endif
-                                
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                        <path d="M9 7h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3" />
-                                        <path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3" />
-                                        <line x1="16" y1="5" x2="19" y2="8" />
-                                    </svg>
-
+                                    <a href="/{id}/edit">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                            <path d="M9 7h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3" />
+                                            <path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3" />
+                                            <line x1="16" y1="5" x2="19" y2="8" />
+                                        </svg>
+                                    </a>
+                                    
                                     <form action="{{route('todo.destroy', $todo->id)}}" method="POST">
                                         @method('DELETE')
                                         @csrf

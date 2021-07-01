@@ -71,7 +71,7 @@ class TodoController extends Controller
      */
     public function edit(Todo $todo)
     {
-        //
+        return view('todo.edit')->with('todo', $todo);
     }
 
     /**
@@ -88,7 +88,6 @@ class TodoController extends Controller
        $input = $request->all();                
        $todo->update($input);
        
-
        return redirect('/');
     }
 
@@ -100,7 +99,7 @@ class TodoController extends Controller
      */
     public function destroy(Request $request, Todo $todo)
     {
-        $todo = Todo::find($request->id);        
+        $todo = Todo::find($request->id);  // 
         $input = $request->all();
         $todo->delete($input);
         return redirect('/');
